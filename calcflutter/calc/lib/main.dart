@@ -12,7 +12,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Temperature Conversion App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.purple,
+          accentColor: Colors.purpleAccent,
+        ),
       ),
       home: const TemperatureConversionPage(),
     );
@@ -99,7 +103,6 @@ class _TemperatureConversionPageState extends State<TemperatureConversionPage> {
     } else if (_conversionType == 'CtoF') {
       _convertedValue = _temperatureValue * 9 / 5 + 32;
     }
-
     setState(() {
       _history.add(
         '${_conversionType == 'FtoC' ? 'F to C' : 'C to F'}: ${_temperatureValue.toStringAsFixed(2)} => ${_convertedValue.toStringAsFixed(2)}',
